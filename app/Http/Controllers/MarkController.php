@@ -84,7 +84,7 @@ class MarkController extends Controller
         $mark = Mark::findOrFail($id);
         $students = Student::all();
         $terms = Term::all();
-        return view('students.edit',compact('mark','students','terms'));
+        return view('marks.edit',compact('mark','students','terms'));
     }
 
     /**
@@ -107,9 +107,9 @@ class MarkController extends Controller
             $mark = Mark::findOrFail($id);
             $students = Student::all();
             $terms = Term::all();
-            return view('students.edit',compact('mark','students','terms'));
+            return view('marks.edit',compact('mark','students','terms'));
         }
-        $mark                   = Student::findOrFail($id);
+        $mark                   = Mark::findOrFail($id);
         $mark->student_id       = $request->post('student');
         $mark->term_id          = $request->post('term');
         $mark->maths_mark       = $request->post('maths');
@@ -130,6 +130,6 @@ class MarkController extends Controller
     {
         $mark = Mark::find($id);
         $mark->delete();
-        return Redirect::route('students.index');
+        return Redirect::route('marks.index');
     }
 }

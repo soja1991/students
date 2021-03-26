@@ -29,7 +29,7 @@
                             <td>{{$mark->history_mark}}</td>
                             <td>{{$mark->term->term}}</td>
                             <td>{{$mark->total_marks}}</td>
-                            <td>{{$mark->created_at}}</td>
+                            <td>{{$mark->created_at->format('M d,Y H:i A')}}</td>
                             <td>
                                 <a href="{{ route('marks.edit', $mark->id) }}">Edit</a>/
                                 <form class="delete" action="{{ route('marks.destroy', $mark->id) }}" method="POST">
